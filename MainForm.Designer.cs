@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewItem listViewItem9 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem(new string[] {
             "ファイル先頭",
             "1"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem10 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem(new string[] {
             "ファイル末尾",
             "-1"}, -1);
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
@@ -39,8 +39,6 @@
             this.menuNew = new System.Windows.Forms.ToolStripMenuItem();
             this.menuOpen = new System.Windows.Forms.ToolStripMenuItem();
             this.menuReload = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuSave = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuSaveAs = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
             this.menuExit = new System.Windows.Forms.ToolStripMenuItem();
             this.menuEdit = new System.Windows.Forms.ToolStripMenuItem();
@@ -54,26 +52,18 @@
             this.menuFind = new System.Windows.Forms.ToolStripMenuItem();
             this.menuFindNext = new System.Windows.Forms.ToolStripMenuItem();
             this.menuFindPrev = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuReplace = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuReplaceNext = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuReplacePrev = new System.Windows.Forms.ToolStripMenuItem();
             this.menuSelectLine = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.btnReplaceAll = new System.Windows.Forms.Button();
-            this.btnReplacePrev = new System.Windows.Forms.Button();
-            this.btnReplaceNext = new System.Windows.Forms.Button();
-            this.btnSearchAll = new System.Windows.Forms.Button();
+            this.btnSearchStop = new System.Windows.Forms.Button();
             this.btnSearchPrev = new System.Windows.Forms.Button();
             this.btnSearchNext = new System.Windows.Forms.Button();
             this.chkSearchWord = new System.Windows.Forms.CheckBox();
             this.chkSearchUpperLower = new System.Windows.Forms.CheckBox();
             this.chkSearchRegex = new System.Windows.Forms.CheckBox();
-            this.txtReplaceBox = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.txtSearchBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -94,8 +84,6 @@
             this.listViewBookmark = new System.Windows.Forms.ListView();
             this.listViewBookmarkName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.listViewBookmarkByteIndex = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.btnSearchStop = new System.Windows.Forms.Button();
-            this.btnReplaceStop = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -130,8 +118,6 @@
             this.menuNew,
             this.menuOpen,
             this.menuReload,
-            this.menuSave,
-            this.menuSaveAs,
             this.toolStripMenuItem1,
             this.menuExit});
             this.menuFile.Name = "menuFile";
@@ -144,7 +130,7 @@
             // 
             this.menuNew.Name = "menuNew";
             this.menuNew.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
-            this.menuNew.Size = new System.Drawing.Size(320, 26);
+            this.menuNew.Size = new System.Drawing.Size(233, 26);
             this.menuNew.Text = "新規(&N)";
             this.menuNew.Click += new System.EventHandler(this.menuNew_Click);
             // 
@@ -152,7 +138,7 @@
             // 
             this.menuOpen.Name = "menuOpen";
             this.menuOpen.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
-            this.menuOpen.Size = new System.Drawing.Size(320, 26);
+            this.menuOpen.Size = new System.Drawing.Size(233, 26);
             this.menuOpen.Text = "開く(&O)...";
             this.menuOpen.Click += new System.EventHandler(this.menuOpen_Click);
             // 
@@ -160,38 +146,19 @@
             // 
             this.menuReload.Name = "menuReload";
             this.menuReload.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.R)));
-            this.menuReload.Size = new System.Drawing.Size(320, 26);
+            this.menuReload.Size = new System.Drawing.Size(233, 26);
             this.menuReload.Text = "再読み込み(&R)";
             this.menuReload.Click += new System.EventHandler(this.menuReload_Click);
-            // 
-            // menuSave
-            // 
-            this.menuSave.Enabled = false;
-            this.menuSave.Name = "menuSave";
-            this.menuSave.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-            this.menuSave.Size = new System.Drawing.Size(320, 26);
-            this.menuSave.Text = "上書き保存(&S)";
-            this.menuSave.Click += new System.EventHandler(this.menuSave_Click);
-            // 
-            // menuSaveAs
-            // 
-            this.menuSaveAs.Enabled = false;
-            this.menuSaveAs.Name = "menuSaveAs";
-            this.menuSaveAs.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
-            | System.Windows.Forms.Keys.S)));
-            this.menuSaveAs.Size = new System.Drawing.Size(320, 26);
-            this.menuSaveAs.Text = "名前を付けて保存(&A)...";
-            this.menuSaveAs.Click += new System.EventHandler(this.menuSaveAs_Click);
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(317, 6);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(230, 6);
             // 
             // menuExit
             // 
             this.menuExit.Name = "menuExit";
-            this.menuExit.Size = new System.Drawing.Size(320, 26);
+            this.menuExit.Size = new System.Drawing.Size(233, 26);
             this.menuExit.Text = "終了(&X)";
             this.menuExit.Click += new System.EventHandler(this.menuExit_Click);
             // 
@@ -208,9 +175,6 @@
             this.menuFind,
             this.menuFindNext,
             this.menuFindPrev,
-            this.menuReplace,
-            this.menuReplaceNext,
-            this.menuReplacePrev,
             this.menuSelectLine});
             this.menuEdit.Name = "menuEdit";
             this.menuEdit.Size = new System.Drawing.Size(71, 24);
@@ -286,33 +250,6 @@
             this.menuFindPrev.Text = "前を検索(&V)";
             this.menuFindPrev.Click += new System.EventHandler(this.menuFindPrev_Click);
             // 
-            // menuReplace
-            // 
-            this.menuReplace.Enabled = false;
-            this.menuReplace.Name = "menuReplace";
-            this.menuReplace.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.H)));
-            this.menuReplace.Size = new System.Drawing.Size(231, 26);
-            this.menuReplace.Text = "置換(&R)";
-            this.menuReplace.Click += new System.EventHandler(this.menuReplace_Click);
-            // 
-            // menuReplaceNext
-            // 
-            this.menuReplaceNext.Enabled = false;
-            this.menuReplaceNext.Name = "menuReplaceNext";
-            this.menuReplaceNext.ShortcutKeys = System.Windows.Forms.Keys.F4;
-            this.menuReplaceNext.Size = new System.Drawing.Size(231, 26);
-            this.menuReplaceNext.Text = "次を置換(&N)";
-            this.menuReplaceNext.Click += new System.EventHandler(this.menuReplaceNext_Click);
-            // 
-            // menuReplacePrev
-            // 
-            this.menuReplacePrev.Enabled = false;
-            this.menuReplacePrev.Name = "menuReplacePrev";
-            this.menuReplacePrev.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Shift | System.Windows.Forms.Keys.F4)));
-            this.menuReplacePrev.Size = new System.Drawing.Size(231, 26);
-            this.menuReplacePrev.Text = "前を置換(&V)";
-            this.menuReplacePrev.Click += new System.EventHandler(this.menuReplacePrev_Click);
-            // 
             // menuSelectLine
             // 
             this.menuSelectLine.Name = "menuSelectLine";
@@ -350,70 +287,29 @@
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.btnReplaceStop);
             this.panel2.Controls.Add(this.btnSearchStop);
-            this.panel2.Controls.Add(this.btnReplaceAll);
-            this.panel2.Controls.Add(this.btnReplacePrev);
-            this.panel2.Controls.Add(this.btnReplaceNext);
-            this.panel2.Controls.Add(this.btnSearchAll);
             this.panel2.Controls.Add(this.btnSearchPrev);
             this.panel2.Controls.Add(this.btnSearchNext);
             this.panel2.Controls.Add(this.chkSearchWord);
             this.panel2.Controls.Add(this.chkSearchUpperLower);
             this.panel2.Controls.Add(this.chkSearchRegex);
-            this.panel2.Controls.Add(this.txtReplaceBox);
-            this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.txtSearchBox);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(0, 599);
+            this.panel2.Location = new System.Drawing.Point(0, 636);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1272, 100);
+            this.panel2.Size = new System.Drawing.Size(1272, 63);
             this.panel2.TabIndex = 3;
             // 
-            // btnReplaceAll
+            // btnSearchStop
             // 
-            this.btnReplaceAll.Enabled = false;
-            this.btnReplaceAll.Location = new System.Drawing.Point(723, 69);
-            this.btnReplaceAll.Name = "btnReplaceAll";
-            this.btnReplaceAll.Size = new System.Drawing.Size(75, 23);
-            this.btnReplaceAll.TabIndex = 12;
-            this.btnReplaceAll.Text = "全て置換";
-            this.btnReplaceAll.UseVisualStyleBackColor = true;
-            this.btnReplaceAll.Click += new System.EventHandler(this.btnReplaceAll_Click);
-            // 
-            // btnReplacePrev
-            // 
-            this.btnReplacePrev.Enabled = false;
-            this.btnReplacePrev.Location = new System.Drawing.Point(642, 69);
-            this.btnReplacePrev.Name = "btnReplacePrev";
-            this.btnReplacePrev.Size = new System.Drawing.Size(75, 23);
-            this.btnReplacePrev.TabIndex = 11;
-            this.btnReplacePrev.Text = "前を置換";
-            this.btnReplacePrev.UseVisualStyleBackColor = true;
-            this.btnReplacePrev.Click += new System.EventHandler(this.btnReplacePrev_Click);
-            // 
-            // btnReplaceNext
-            // 
-            this.btnReplaceNext.Enabled = false;
-            this.btnReplaceNext.Location = new System.Drawing.Point(561, 69);
-            this.btnReplaceNext.Name = "btnReplaceNext";
-            this.btnReplaceNext.Size = new System.Drawing.Size(75, 23);
-            this.btnReplaceNext.TabIndex = 10;
-            this.btnReplaceNext.Text = "次を置換";
-            this.btnReplaceNext.UseVisualStyleBackColor = true;
-            this.btnReplaceNext.Click += new System.EventHandler(this.btnReplaceNext_Click);
-            // 
-            // btnSearchAll
-            // 
-            this.btnSearchAll.Enabled = false;
-            this.btnSearchAll.Location = new System.Drawing.Point(723, 8);
-            this.btnSearchAll.Name = "btnSearchAll";
-            this.btnSearchAll.Size = new System.Drawing.Size(75, 23);
-            this.btnSearchAll.TabIndex = 4;
-            this.btnSearchAll.Text = "全て検索";
-            this.btnSearchAll.UseVisualStyleBackColor = true;
-            this.btnSearchAll.Click += new System.EventHandler(this.btnSearchAll_Click);
+            this.btnSearchStop.Enabled = false;
+            this.btnSearchStop.Location = new System.Drawing.Point(723, 8);
+            this.btnSearchStop.Name = "btnSearchStop";
+            this.btnSearchStop.Size = new System.Drawing.Size(75, 23);
+            this.btnSearchStop.TabIndex = 13;
+            this.btnSearchStop.Text = "検索中止";
+            this.btnSearchStop.UseVisualStyleBackColor = true;
             // 
             // btnSearchPrev
             // 
@@ -467,25 +363,6 @@
             this.chkSearchRegex.Text = "正規表現";
             this.chkSearchRegex.UseVisualStyleBackColor = true;
             // 
-            // txtReplaceBox
-            // 
-            this.txtReplaceBox.Enabled = false;
-            this.txtReplaceBox.Location = new System.Drawing.Point(55, 69);
-            this.txtReplaceBox.Name = "txtReplaceBox";
-            this.txtReplaceBox.Size = new System.Drawing.Size(500, 22);
-            this.txtReplaceBox.TabIndex = 9;
-            this.txtReplaceBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtReplaceBox_KeyDown);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Enabled = false;
-            this.label2.Location = new System.Drawing.Point(12, 72);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(37, 15);
-            this.label2.TabIndex = 8;
-            this.label2.Text = "置換";
-            // 
             // txtSearchBox
             // 
             this.txtSearchBox.Location = new System.Drawing.Point(55, 9);
@@ -509,7 +386,7 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(0, 28);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1272, 571);
+            this.panel3.Size = new System.Drawing.Size(1272, 608);
             this.panel3.TabIndex = 0;
             // 
             // splitContainer1
@@ -526,7 +403,7 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.tabControl1);
-            this.splitContainer1.Size = new System.Drawing.Size(1272, 571);
+            this.splitContainer1.Size = new System.Drawing.Size(1272, 608);
             this.splitContainer1.SplitterDistance = 962;
             this.splitContainer1.TabIndex = 0;
             // 
@@ -537,7 +414,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(962, 571);
+            this.panel1.Size = new System.Drawing.Size(962, 608);
             this.panel1.TabIndex = 5;
             // 
             // txtMain
@@ -549,7 +426,7 @@
             this.txtMain.Multiline = true;
             this.txtMain.Name = "txtMain";
             this.txtMain.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtMain.Size = new System.Drawing.Size(941, 571);
+            this.txtMain.Size = new System.Drawing.Size(941, 608);
             this.txtMain.TabIndex = 0;
             this.txtMain.WordWrap = false;
             this.txtMain.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtMain_KeyDown);
@@ -565,7 +442,7 @@
             this.panel4.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel4.Location = new System.Drawing.Point(941, 0);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(21, 571);
+            this.panel4.Size = new System.Drawing.Size(21, 608);
             this.panel4.TabIndex = 1;
             // 
             // vScrollBar1
@@ -574,14 +451,14 @@
             this.vScrollBar1.Location = new System.Drawing.Point(0, 0);
             this.vScrollBar1.Maximum = 109;
             this.vScrollBar1.Name = "vScrollBar1";
-            this.vScrollBar1.Size = new System.Drawing.Size(21, 525);
+            this.vScrollBar1.Size = new System.Drawing.Size(21, 562);
             this.vScrollBar1.TabIndex = 0;
             this.vScrollBar1.Scroll += new System.Windows.Forms.ScrollEventHandler(this.vScrollBar1_Scroll);
             // 
             // btnUp
             // 
             this.btnUp.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.btnUp.Location = new System.Drawing.Point(0, 525);
+            this.btnUp.Location = new System.Drawing.Point(0, 562);
             this.btnUp.Name = "btnUp";
             this.btnUp.Size = new System.Drawing.Size(21, 23);
             this.btnUp.TabIndex = 0;
@@ -595,7 +472,7 @@
             // btnDown
             // 
             this.btnDown.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.btnDown.Location = new System.Drawing.Point(0, 548);
+            this.btnDown.Location = new System.Drawing.Point(0, 585);
             this.btnDown.Name = "btnDown";
             this.btnDown.Size = new System.Drawing.Size(21, 23);
             this.btnDown.TabIndex = 0;
@@ -614,7 +491,7 @@
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(306, 571);
+            this.tabControl1.Size = new System.Drawing.Size(306, 608);
             this.tabControl1.TabIndex = 0;
             // 
             // TabPageProperty
@@ -623,7 +500,7 @@
             this.TabPageProperty.Location = new System.Drawing.Point(4, 25);
             this.TabPageProperty.Name = "TabPageProperty";
             this.TabPageProperty.Padding = new System.Windows.Forms.Padding(3);
-            this.TabPageProperty.Size = new System.Drawing.Size(298, 542);
+            this.TabPageProperty.Size = new System.Drawing.Size(298, 579);
             this.TabPageProperty.TabIndex = 0;
             this.TabPageProperty.Text = "プロパティ";
             this.TabPageProperty.UseVisualStyleBackColor = true;
@@ -633,7 +510,7 @@
             this.propertyGrid1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.propertyGrid1.Location = new System.Drawing.Point(3, 3);
             this.propertyGrid1.Name = "propertyGrid1";
-            this.propertyGrid1.Size = new System.Drawing.Size(292, 536);
+            this.propertyGrid1.Size = new System.Drawing.Size(292, 573);
             this.propertyGrid1.TabIndex = 0;
             // 
             // TabPageBookmark
@@ -643,7 +520,7 @@
             this.TabPageBookmark.Location = new System.Drawing.Point(4, 25);
             this.TabPageBookmark.Name = "TabPageBookmark";
             this.TabPageBookmark.Padding = new System.Windows.Forms.Padding(3);
-            this.TabPageBookmark.Size = new System.Drawing.Size(298, 546);
+            this.TabPageBookmark.Size = new System.Drawing.Size(298, 542);
             this.TabPageBookmark.TabIndex = 1;
             this.TabPageBookmark.Text = "ブックマーク";
             this.TabPageBookmark.UseVisualStyleBackColor = true;
@@ -688,8 +565,8 @@
             this.listViewBookmarkByteIndex});
             this.listViewBookmark.HideSelection = false;
             this.listViewBookmark.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem9,
-            listViewItem10});
+            listViewItem1,
+            listViewItem2});
             this.listViewBookmark.LabelEdit = true;
             this.listViewBookmark.Location = new System.Drawing.Point(3, 35);
             this.listViewBookmark.Name = "listViewBookmark";
@@ -709,26 +586,6 @@
             this.listViewBookmarkByteIndex.Text = "位置";
             this.listViewBookmarkByteIndex.Width = 89;
             // 
-            // btnSearchStop
-            // 
-            this.btnSearchStop.Enabled = false;
-            this.btnSearchStop.Location = new System.Drawing.Point(804, 8);
-            this.btnSearchStop.Name = "btnSearchStop";
-            this.btnSearchStop.Size = new System.Drawing.Size(75, 23);
-            this.btnSearchStop.TabIndex = 13;
-            this.btnSearchStop.Text = "検索中止";
-            this.btnSearchStop.UseVisualStyleBackColor = true;
-            // 
-            // btnReplaceStop
-            // 
-            this.btnReplaceStop.Enabled = false;
-            this.btnReplaceStop.Location = new System.Drawing.Point(804, 69);
-            this.btnReplaceStop.Name = "btnReplaceStop";
-            this.btnReplaceStop.Size = new System.Drawing.Size(75, 23);
-            this.btnReplaceStop.TabIndex = 14;
-            this.btnReplaceStop.Text = "置換中止";
-            this.btnReplaceStop.UseVisualStyleBackColor = true;
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -741,7 +598,7 @@
             this.Font = new System.Drawing.Font("MS UI Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainForm";
-            this.Text = "LargeTextEditor";
+            this.Text = "LargeTextViewer";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.menuStrip1.ResumeLayout(false);
@@ -773,7 +630,6 @@
         private System.Windows.Forms.ToolStripMenuItem menuFile;
         private System.Windows.Forms.ToolStripMenuItem menuNew;
         private System.Windows.Forms.ToolStripMenuItem menuOpen;
-        private System.Windows.Forms.ToolStripMenuItem menuSave;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem menuExit;
         private System.Windows.Forms.ToolStripMenuItem menuEdit;
@@ -787,9 +643,7 @@
         private System.Windows.Forms.ToolStripMenuItem menuFind;
         private System.Windows.Forms.ToolStripMenuItem menuFindNext;
         private System.Windows.Forms.ToolStripMenuItem menuFindPrev;
-        private System.Windows.Forms.ToolStripMenuItem menuReplace;
         private System.Windows.Forms.ToolStripMenuItem menuSelectLine;
-        private System.Windows.Forms.ToolStripMenuItem menuSaveAs;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
@@ -808,17 +662,11 @@
         private System.Windows.Forms.ListView listViewBookmark;
         private System.Windows.Forms.ColumnHeader listViewBookmarkName;
         private System.Windows.Forms.ColumnHeader listViewBookmarkByteIndex;
-        private System.Windows.Forms.Button btnReplaceAll;
-        private System.Windows.Forms.Button btnReplacePrev;
-        private System.Windows.Forms.Button btnReplaceNext;
-        private System.Windows.Forms.Button btnSearchAll;
         private System.Windows.Forms.Button btnSearchPrev;
         private System.Windows.Forms.Button btnSearchNext;
         private System.Windows.Forms.CheckBox chkSearchWord;
         private System.Windows.Forms.CheckBox chkSearchUpperLower;
         private System.Windows.Forms.CheckBox chkSearchRegex;
-        private System.Windows.Forms.TextBox txtReplaceBox;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtSearchBox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel4;
@@ -826,10 +674,7 @@
         private System.Windows.Forms.Button btnUp;
         private System.Windows.Forms.Button btnDown;
         private System.Windows.Forms.ToolStripMenuItem menuReload;
-        private System.Windows.Forms.ToolStripMenuItem menuReplaceNext;
-        private System.Windows.Forms.ToolStripMenuItem menuReplacePrev;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
-        private System.Windows.Forms.Button btnReplaceStop;
         private System.Windows.Forms.Button btnSearchStop;
     }
 }

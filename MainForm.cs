@@ -210,22 +210,6 @@ namespace LargeTextEditor
             btnSearchPrev_Click(sender, e);
         }
 
-        private void menuReplace_Click(object sender, EventArgs e)
-        {
-            txtReplaceBox.SelectAll();
-            this.ActiveControl = txtReplaceBox;
-        }
-
-        private void menuReplaceNext_Click(object sender, EventArgs e)
-        {
-            btnReplaceNext_Click(sender, e);
-        }
-
-        private void menuReplacePrev_Click(object sender, EventArgs e)
-        {
-            btnReplacePrev_Click(sender, e);
-        }
-
         private void menuSelectLine_Click(object sender, EventArgs e)
         {
             if (txtMain.Focused == false)
@@ -256,6 +240,18 @@ namespace LargeTextEditor
 
         #region SearchEvent
 
+        private void txtSearchBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                this.BeginInvoke((Action)(() =>
+                {
+                    btnSearchNext.PerformClick();
+                }));
+
+            }
+        }
+
         private async void btnSearchNext_Click(object sender, EventArgs e)
         {
             await SearchExecute(SearchManager.Direction.Forward);
@@ -264,26 +260,6 @@ namespace LargeTextEditor
         private async void btnSearchPrev_Click(object sender, EventArgs e)
         {
             await SearchExecute(SearchManager.Direction.Backward);
-        }
-
-        private void btnSearchAll_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnReplaceNext_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnReplacePrev_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnReplaceAll_Click(object sender, EventArgs e)
-        {
-
         }
 
         #endregion
@@ -460,30 +436,6 @@ namespace LargeTextEditor
 
             }
 
-        }
-
-        private void txtSearchBox_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                this.BeginInvoke((Action)(() =>
-                {
-                    btnSearchNext.PerformClick();
-                }));
-                
-            }
-        }
-
-        private void txtReplaceBox_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                this.BeginInvoke((Action)(() =>
-                {
-                    btnReplaceNext.PerformClick();
-                }));
-
-            }
         }
 
         private async void vScrollBar1_Scroll(object sender, ScrollEventArgs e)
